@@ -2,7 +2,7 @@ from django.db import models
 from Musician.models import Musician
 # Create your models here.
 class Album(models.Model):
-    Albumname=models.CharField(max_length=200,name="Album Name")
+    Album_name=models.CharField(max_length=200)
     Artist=models.ForeignKey(Musician,on_delete=models.CASCADE)
     Release_Date=models.DateField(auto_now_add=True)
     ratings=[
@@ -15,4 +15,5 @@ class Album(models.Model):
     Rating=models.IntegerField(choices=ratings)
     
     def __str__(self):
-        return f"{self.Albumname}"
+        return f"{self.Album_name}"
+    
